@@ -1,20 +1,23 @@
 import vazirFont from '@/constants/localFonts'
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
 import './globals.css'
 import Header from './Header'
+import Providers from './Providers'
 
 export const metaData = {
     title: 'next shop',
-    description : 'Next.js shop'
+    description: 'Next.js shop'
 }
 
-const RootLayout = ({children}) => {
+const RootLayout = ({ children }) => {
     return (
         <html lang="fa" dir="rtl">
             <body className={`${vazirFont.variable} font-sans`}>
+                <Toaster />
                 <Header />
                 <div className="container xl:max-w-screen-xl">
-                    {children}
+                    <Providers > {children}</Providers>
                 </div>
             </body>
         </html>

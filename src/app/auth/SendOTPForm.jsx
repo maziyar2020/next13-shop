@@ -1,12 +1,18 @@
 import TextField from '@/common/TextField'
 import React from 'react'
 
-const SendOTPForm = () => {
+const SendOTPForm = ({ phoneNumber, onChange, onSubmit }) => {
+
     return (
         <div>
-            <form>
-                <TextField name="" label="" onChange={}  />
-                <button type="submit"></button>
+            <form onSubmit={onSubmit}>
+                <TextField
+                    name="phoneNumber"
+                    label="شماره تلفن"
+                    onChange={onChange}
+                    value={phoneNumber}
+                />
+                <button type="submit" className="btn btn--primary">Submit</button>
             </form>
         </div>
     )

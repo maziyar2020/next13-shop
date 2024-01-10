@@ -3,9 +3,9 @@ import React from 'react'
 const TextField = ({ name, label, onChange, value }) => {
     return (
         <div>
-            <label htmlFor={name} className="block text-red-300">{label}</label>
+            <label htmlFor={name} className="block text-red-300 mb-2">{label}</label>
             <input type="text"
-                className="bg-gray-50 p-2 rounded-sm"
+                className="textField__input"
                 id={name}
                 name={name}
                 value={value}

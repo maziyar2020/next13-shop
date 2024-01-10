@@ -17,7 +17,7 @@ const RootLayout = ({ children }) => {
                 <Toaster />
                 <Header />
                 <div className="container xl:max-w-screen-xl">
-                    <Providers > {children}</Providers>
+                    <Providers> {children}</Providers>
                 </div>
             </body>
         </html>

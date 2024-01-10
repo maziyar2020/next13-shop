@@ -1,0 +1,26 @@
+import OTPInput from 'react-otp-input'
+import React from 'react'
+
+const CheckOTPForm = ({ onSubmit , otp,setOtp }) => {
+    return (
+        <div>
+            <form className="space-y-5" onSubmit={onSubmit}>
+                <p>لطفا کد ورود خود را وارد کنید</p>
+                <OTPInput
+                    value={otp}
+                    onChange={setOtp}
+                    numInputs={6}
+                    renderSeparator={<span>-</span>}
+                    renderInput={(props) => <input {...props} />}
+                />
+
+
+                <button type="submit" className="btn btn--primary w-full">
+                    تایید
+                </button>
+            </form>
+        </div>
+    )
+}
+
+export default CheckOTPForm

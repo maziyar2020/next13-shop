@@ -1,16 +1,23 @@
 'use client'
+// components
 import TextField from '@/common/TextField'
+// http req
 import { completeProfileReq } from '@/services/authServices'
+// RQ
 import { useMutation } from '@tanstack/react-query'
+// next & react hooks
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+// pop up
 import toast from 'react-hot-toast'
 
 const CompleteProfile = () => {
-
+    // states
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    // Router
     const router = useRouter()
+    // RQ
     const {
         isLoading,
         error,
@@ -18,7 +25,7 @@ const CompleteProfile = () => {
         mutateAsync
     } = useMutation({ mutationFn: completeProfileReq })
 
-
+    // this method will execute when profile form submitted
     const handleCompleteProfile = async (e) => {
         e.preventDefault()
 

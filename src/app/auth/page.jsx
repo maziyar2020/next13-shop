@@ -16,7 +16,7 @@ const RESEND_TIME=90
 const AuthPage = () => {
     // states
     const [phoneNumber, setPhoneNumber] = useState('')
-    const [pageStep, setPageStep] = useState(2)
+    const [pageStep, setPageStep] = useState(1)
     const [otp, setOtp] = useState('')
     const [time, setTime] = useState()
     
@@ -41,11 +41,11 @@ const AuthPage = () => {
         try {
             const res = await mutateGetOtp({ phoneNumber })
             console.log(res);
-            setTime(RESEND_TIME)
         } catch (error) {
             toast.error(error?.response?.data?.message)
             console.log(error?.response?.data?.message)
         } finally {
+            setTime(RESEND_TIME)
             setPageStep(2)
         }
     }

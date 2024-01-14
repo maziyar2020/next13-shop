@@ -1,5 +1,6 @@
-
+// common & components
 import TextField from '@/common/TextField'
+// React and hooks
 import React from 'react'
 
 const SendOTPForm = ({ phoneNumber, onChange, onSubmit, isLoading }) => {

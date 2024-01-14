@@ -1,6 +1,9 @@
+// Fonts
 import vazirFont from '@/constants/localFonts'
 import React from 'react'
+// popup
 import { Toaster } from 'react-hot-toast'
+// style
 import './globals.css'
 import Header from './Header'
 import Providers from './Providers'

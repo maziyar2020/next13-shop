@@ -3,16 +3,16 @@ import OTPInput from 'react-otp-input'
 // react hooks
 import React from 'react'
 
-const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack,resendOtp,time }) => {
+const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack, resendOtp, time, isCheckingOtp }) => {
     return (
         <div>
             <button onClick={goBack}>برگشت</button>
             <div>
                 {time > 0 ? (
                     <p>{time} تا ارسال مجدد کد</p>
-                ): (
+                ) : (
                     <button onClick={resendOtp}>ارسال مجدد کد</button>
-                    )}
+                )}
             </div>
             <form className="space-y-5" onSubmit={onSubmit}>
                 <p>لطفا کد ورود خود را وارد کنید</p>
@@ -37,10 +37,17 @@ const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack,resendOtp,time }) => {
                     renderInput={(props) => <input {...props} />}
                 />
 
-
-                <button type="submit" className="btn btn--primary w-full">
-                    تایید
-                </button>
+                {
+                    isCheckingOtp ? (
+                        <div className="btn btn--primary text-center">
+                            loading
+                        </div>
+                    ) : (
+                        <button className="btn btn--primary w-full">
+                            submit
+                        </button>
+                    )
+                }
             </form>
         </div>
     )

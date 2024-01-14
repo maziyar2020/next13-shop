@@ -27,7 +27,7 @@ const AuthPage = () => {
         { isError, isLoading, data, error, mutateAsync: mutateGetOtp }
             = useMutation({ mutationFn: getOtp })
     const
-        { mutateAsync: mutateCheckOtp }
+        { mutateAsync: mutateCheckOtp , isLoading : isCheckingOtp }
             = useMutation({ mutationFn: checkOtp })
 
 
@@ -98,6 +98,7 @@ const AuthPage = () => {
                     time={time}
                     resendOtp={submitHandler}
                     goBack={() => setPageStep(current => current - 1)}
+                    isCheckingOtp={isCheckingOtp}
                 />
 
             default:

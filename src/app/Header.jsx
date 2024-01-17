@@ -8,7 +8,7 @@ function Header() {
 
     const { data, error, isLoading } = getUserDetail()
 
-    const {user,cart} = data || {}
+    const { user, cart } = data || {}
 
     return (
         <header
@@ -23,8 +23,13 @@ function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link className="block py-2" href="/products">
-                            محصولات
+                        <Link className="block py-2" href="/profile">
+                            پروفایل
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className="block py-2" href="/admin">
+                            ادمین
                         </Link>
                     </li>
                     <li>

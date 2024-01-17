@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import middlewareAuth from "./utils/middlewareAut";
+import middlewareAuth from "./utils/middlewareAuth";
 
 export async function middleware(req) {
   const url = req.url;
@@ -19,6 +19,7 @@ export async function middleware(req) {
   }
 }
 
+// this object will execute the middleware base on pathname 
 export const config = {
   matcher: ["/admin/:path*", "/profile/:path*"],
 };

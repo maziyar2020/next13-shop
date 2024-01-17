@@ -16,7 +16,10 @@ export const metaData = {
 const RootLayout = ({ children }) => {
     return (
         <html lang="fa" dir="rtl">
-            <body className={`${vazirFont.variable} font-sans`} suppressHydrationWarning={true}>
+            <body
+                className={`${vazirFont.variable} font-sans`}
+                suppressHydrationWarning={true}
+            >
                 <Providers>
                     <Toaster />
                     <Header />

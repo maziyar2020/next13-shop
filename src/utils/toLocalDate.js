@@ -1,7 +1,7 @@
 export function toLocalDateString(date) {
   const options = {
     year: "numeric",
-    month: "long",
+    month: "2-digit",
     day: "numeric",
   };
 

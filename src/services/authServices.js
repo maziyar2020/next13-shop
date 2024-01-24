@@ -9,10 +9,17 @@ export const checkOtp = (data) => {
 }
 
 export const completeProfileReq = (data) => {
-    return http.post('/user/complete-profile',data).then(({data}) => data.data)
+    return http.post('/user/complete-profile', data).then(({ data }) => data.data)
 }
 
 export const getUserInfo = () => {
-    return http.get('/user/profile').then(({data}) => data.data)
+    return http.get('/user/profile').then(({ data }) => data.data)
 }
 
+export const updateUser = (data) => {
+    return http.patch('/user/update', data).then(({ data }) => data.data)
+}
+
+export const logOut = () => {
+    return http.post('/user/logout')
+}

@@ -15,9 +15,6 @@ app.interceptors.response.use(
     res => res,
     async (err) => {
         const originalConfig = err.config
-        if (err.response.status === 401) {
-            console.log('hi', err);
-        }
         // if condition failed return promise
         if (err.response.status === 401 && !originalConfig._retry) {
             originalConfig._retry = true;

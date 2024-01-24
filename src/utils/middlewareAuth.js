@@ -1,7 +1,7 @@
 export default async function middlewareAuth(req) {
 
     let strCookie = ''
-    // get all cookies
+    // get all cookies => accesstoken+refreshtoken; | space here for token
     req.cookies.getAll().forEach(item => {
         strCookie += `${item?.name}=${item?.value}; `
     })

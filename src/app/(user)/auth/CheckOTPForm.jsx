@@ -2,6 +2,7 @@
 import OTPInput from 'react-otp-input'
 // react hooks
 import React from 'react'
+import LoadingSpinner from '@/common/LoadingSpinner'
 
 const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack, resendOtp, time, isCheckingOtp }) => {
     return (
@@ -29,7 +30,7 @@ const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack, resendOtp, time, isChecki
 
                     containerStyle={{
                         direction: 'ltr',
-                        display: 'flex',
+                        display: 'flex flex-row-reverse',
                         justifyContent: 'center',
                         gap: '8px'
                     }}
@@ -40,7 +41,7 @@ const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack, resendOtp, time, isChecki
                 {
                     isCheckingOtp ? (
                         <div className="btn btn--primary text-center">
-                            loading
+                            <LoadingSpinner />
                         </div>
                     ) : (
                         <button className="btn btn--primary w-full">

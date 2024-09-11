@@ -1,4 +1,5 @@
 // common & components
+import LoadingSpinner from '@/common/LoadingSpinner'
 import TextField from '@/common/TextField'
 // React and hooks
 import React from 'react'
@@ -17,9 +18,9 @@ const SendOTPForm = ({ phoneNumber, onChange, onSubmit, isLoading }) => {
                 <div>
                     {
                         isLoading ? (
-                            <div className="btn btn--primary text-center">
-                                loading
-                            </div>
+                            <button className="btn btn--primary w-full">
+                                <LoadingSpinner />
+                            </button>
                         ) : (
                             <button className="btn btn--primary w-full">
                                 submit

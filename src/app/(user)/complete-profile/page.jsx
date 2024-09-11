@@ -1,4 +1,5 @@
 'use client'
+import LoadingSpinner from '@/common/LoadingSpinner'
 // components
 import TextField from '@/common/TextField'
 // http req
@@ -33,7 +34,7 @@ const CompleteProfile = () => {
             const { message,user } = await mutateAsync({ name, email })
             toast.success(message)
             toast.success(`${user.name} خوش اومدی`)
-            router.push('/')
+            router.push('/profile')
         } catch (error) {
             toast.error(error?.response?.data?.message)
             console.log(error?.response?.data?.message)
@@ -60,7 +61,7 @@ const CompleteProfile = () => {
                     {
                         isLoading ? (
                             <div className="btn btn--primary text-center">
-                                loading
+                                <LoadingSpinner />
                             </div>
                         ) : (
                             <button className="btn btn--primary w-full" type="submit">

@@ -16,7 +16,7 @@ const BaseSidebar = () => {
                     <Link href="/">صفحه اصلی</Link>
                 </li>
                 <li>
-                    <Link href="/profile/me">داشبورد</Link>
+                    <Link href="/profile">داشبورد</Link>
                 </li>
                 <li>
                     <Link href="/profile/me">پروفایل کاربر</Link>

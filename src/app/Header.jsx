@@ -8,7 +8,9 @@ function Header() {
 
     const { data, error, isLoading } = getUserDetail()
 
+    
     const { user, cart } = data || {}
+    console.log(user);
 
     return (
         <header
@@ -37,15 +39,15 @@ function Header() {
                             سبد خرید - {cart ? cart.payDetail.productIds.length : '0'}
                         </Link>
                     </li>
-                    {
-                        user ? (
-                            <span>{user.name}</span>
-                        ) : (<li>
+                    {user ? (
+                        <span>{user.name}</span>
+                    ) : (
+                        <li>
                             <Link className="block py-2" href="/auth">
                                 ورود
                             </Link>
-                        </li>)
-                    }
+                        </li>
+                    )}
                 </ul>
             </nav >
         </header >

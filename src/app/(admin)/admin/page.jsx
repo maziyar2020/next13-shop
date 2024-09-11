@@ -1,11 +1,7 @@
-import React from 'react'
-
-const Admin = () => {
-    return (
-        <div>
-            admin
-        </div>
-    )
+function Admin() {
+  return <div>صفحه ادمین</div>;
 }
+export default Admin;
 
-export default Admin
+// authentication : name, email,...
+// authorization : access (admin)

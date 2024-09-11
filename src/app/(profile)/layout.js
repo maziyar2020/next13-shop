@@ -1,7 +1,7 @@
 import vazirFont from "@/constants/localFonts"
 import { Toaster } from "react-hot-toast"
-import Providers from "../../Providers"
-import '../../globals.css'
+import Providers from "../Providers"
+import '../globals.css'
 import BaseSidebar from "@/components/sidebar/BaseSidebar"
 
 export const metadata = {

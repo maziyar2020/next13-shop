@@ -11,7 +11,8 @@ import toast from 'react-hot-toast'
 // components
 import CheckOTPForm from './CheckOTPForm'
 import SendOTPForm from './SendOTPForm'
-const RESEND_TIME=90
+// form timer
+const RESEND_TIME = 90
 
 const AuthPage = () => {
     // states
@@ -19,7 +20,7 @@ const AuthPage = () => {
     const [pageStep, setPageStep] = useState(1)
     const [otp, setOtp] = useState('')
     const [time, setTime] = useState()
-    
+
     const router = useRouter()
 
     // redux 
@@ -27,7 +28,7 @@ const AuthPage = () => {
         { isError, isLoading, data, error, mutateAsync: mutateGetOtp }
             = useMutation({ mutationFn: getOtp })
     const
-        { mutateAsync: mutateCheckOtp , isLoading : isCheckingOtp }
+        { isLoading: isCheckingOtp, mutateAsync: mutateCheckOtp }
             = useMutation({ mutationFn: checkOtp })
 
 
@@ -53,10 +54,10 @@ const AuthPage = () => {
     const checkOTPHandler = async (e) => {
         e.preventDefault()
         try {
-            const {message,user} = await mutateCheckOtp({ phoneNumber, otp })
+            const { message, user } = await mutateCheckOtp({ phoneNumber, otp })
             toast.success(message)
             if (user.isActive) {
-                router.push('/')
+                router.push('/profile')
             } else {
                 router.push('/complete-profile')
             }
@@ -67,14 +68,19 @@ const AuthPage = () => {
 
     }
 
+    const returnToStepOne = () => {
+        setOtp('')
+        setPageStep(current => current - 1)
+    }
+
     useEffect(() => {
         const timer = time > 0 && setInterval(() => {
             setTime(t => t - 1)
         }, 1000)
-        return() => {
+        return () => {
             if (timer) clearInterval(timer)
         }
-    },[time])
+    }, [time])
 
 
 
@@ -97,7 +103,7 @@ const AuthPage = () => {
                     otp={otp} setOtp={setOtp}
                     time={time}
                     resendOtp={submitHandler}
-                    goBack={() => setPageStep(current => current - 1)}
+                    goBack={returnToStepOne}
                     isCheckingOtp={isCheckingOtp}
                 />
 

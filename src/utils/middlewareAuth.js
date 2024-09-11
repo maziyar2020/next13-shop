@@ -6,7 +6,6 @@ export default async function middlewareAuth(req) {
         strCookie += `${item?.name}=${item?.value}; `
     })
 
-    console.log(strCookie);
 
     const { data } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/profile`, {
         method: 'GET',

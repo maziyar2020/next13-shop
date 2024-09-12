@@ -2,7 +2,7 @@
 import { logOut } from '@/services/authServices'
 import Link from 'next/link'
 
-const BaseSidebar = () => {
+const BaseProfileSidebar = () => {
 
     const logoutHandler = async (e) => {
         await logOut()
@@ -29,4 +29,4 @@ const BaseSidebar = () => {
     )
 }
 
-export default BaseSidebar
+export default BaseProfileSidebar

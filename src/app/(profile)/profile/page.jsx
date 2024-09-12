@@ -1,13 +1,18 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { getUserDetail } from '@/hooks/useAuth'
 import { toLocalDateString } from '@/utils/toLocalDate'
+import LoadingSpinner from '@/common/LoadingSpinner'
 
 const Profile = () => {
     const { data, isLoading } = getUserDetail()
     const { user } = data || {}
 
-    if (isLoading) return <p>loading</p>
+    if (isLoading) return (
+        <div className="grid items-center justify-center h-screen max-h-screen">
+            <LoadingSpinner large={true} />
+        </div>
+    )
 
     return (
         <div>

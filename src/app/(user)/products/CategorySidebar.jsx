@@ -1,15 +1,17 @@
 "use client"
 import BaseCheckbox from '@/common/BaseCheckbox'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 const CategorySidebar = ({ categories }) => {
+
+    // requirements for set querystring on next13
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
-
+    // set query on page and split it by comma
     const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category')?.split(',') || [])
-
+    // set call back for querystring set
     const createQueryString = useCallback(
         (name, value) => {
             const params = new URLSearchParams(searchParams)
@@ -19,7 +21,6 @@ const CategorySidebar = ({ categories }) => {
         },
         [searchParams],
     )
-
 
 
     const checkBoxHandler = (e) => {
@@ -33,6 +34,18 @@ const CategorySidebar = ({ categories }) => {
             router.push(pathname + "?" + createQueryString('category', [...selectedCategory, value]))
         }
     }
+
+
+    // debugger for removing all queries use router and push user
+    // into the pathname without any queries
+    useEffect(() => {
+        if (selectedCategory == '') {
+            router.push(pathname)
+        }
+        return () => {
+            
+        }
+    }, [searchParams])
 
     return (
         <div className="col-span-1 ">

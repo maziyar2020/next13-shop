@@ -1,3 +1,4 @@
 import http from './httpService'
 
-export const getProducts = () => http.get('/product/list').then(data=> data.data.data)
+export const getProducts = (qs) => http.get(`/product/list?${qs}`)
+    .then(data => data.data.data)

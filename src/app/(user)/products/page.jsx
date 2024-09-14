@@ -4,6 +4,8 @@ import React from 'react'
 import CategorySidebar from './CategorySidebar'
 import queryString from 'query-string'
 
+export const dynamic = 'force-dynamic' // this is equal to set cache to no-store on fetching.
+
 const Products = async ({searchParams}) => {
     const { products } = await getProducts(queryString.stringify(searchParams))
     const { categories } = await getCategories()

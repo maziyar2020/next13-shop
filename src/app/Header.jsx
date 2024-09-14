@@ -10,8 +10,6 @@ function Header() {
 
     
     const { user, cart } = data || {}
-    console.log(user);
-
     return (
         <header
             className={`shadow-md mb-10 sticky top-0 transition-all duration-200 

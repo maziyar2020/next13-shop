@@ -6,10 +6,14 @@ import queryString from 'query-string'
 
 export const dynamic = 'force-dynamic' // this is equal to set cache to no-store on fetching.
 
-const Products = async ({searchParams}) => {
-    const { products } = await getProducts(queryString.stringify(searchParams))
-    const { categories } = await getCategories()
-    
+const Products = async ({ searchParams }) => {
+
+    // parallel data fetching
+    const productPromise = getProducts(queryString.stringify(searchParams))
+    const categoryPromise = getCategories()
+
+    const [{products},{categories}] = await Promise.all([productPromise,categoryPromise])
+
     return (
         <div>
             <h1 className="text-xl font-bold mb-6">product List</h1>

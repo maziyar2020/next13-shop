@@ -48,7 +48,7 @@ const ProductsSort = () => {
     }
 
     useEffect(() => {
-        setSort(searchParams.get('sort'))
+        setSort(searchParams.get('sort') || '')
         return () => {
 
         }

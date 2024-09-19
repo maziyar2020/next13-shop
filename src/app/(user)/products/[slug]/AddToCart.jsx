@@ -45,7 +45,7 @@ const AddToCart = ({ product }) => {
         <div>
             {
                 isInCart(user, product) ? (
-                    <Link href={'/cart'}>ادامه سفارش</Link>
+                    <Link href={'/cart'} className="text-primary-900 font-bold ">ادامه سفارش</Link>
                 ) :
                     isLoading ? (
                         <button className="btn btn--primary">

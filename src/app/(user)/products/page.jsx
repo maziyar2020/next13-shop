@@ -5,6 +5,7 @@ import CategorySidebar from './CategorySidebar'
 import queryString from 'query-string'
 import { toLocalDateStringShort } from '@/utils/toLocalDate'
 import Link from 'next/link'
+import AddToCart from './[slug]/AddToCart'
 
 export const dynamic = 'force-dynamic' // this is equal to set cache to no-store on fetching.
 
@@ -38,6 +39,7 @@ const Products = async ({ searchParams }) => {
                                     <Link href={`/products/${product.slug}`} className="text-primary-900 font-bold">
                                         مشاهده محصول
                                     </Link>
+                                    <AddToCart product={product} />
                                 </div>
                             )
                         }

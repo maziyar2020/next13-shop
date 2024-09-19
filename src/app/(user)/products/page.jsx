@@ -6,13 +6,19 @@ import queryString from 'query-string'
 import { toLocalDateStringShort } from '@/utils/toLocalDate'
 import Link from 'next/link'
 import AddToCart from './[slug]/AddToCart'
+import LikedProducts from './LikedProducts'
+import { cookies } from 'next/dist/client/components/headers'
+import { cookiesToString } from '@/utils/cookiesToStr'
 
 export const dynamic = 'force-dynamic' // this is equal to set cache to no-store on fetching.
 
 const Products = async ({ searchParams }) => {
 
+    const cookieStore = cookies()
+    const cookie = cookiesToString(cookieStore)
+
     // parallel data fetching
-    const productPromise = getProducts(queryString.stringify(searchParams))
+    const productPromise = getProducts(queryString.stringify(searchParams),cookie)
     const categoryPromise = getCategories()
 
     const [{ products }, { categories }] = await Promise.all([productPromise, categoryPromise])
@@ -39,6 +45,7 @@ const Products = async ({ searchParams }) => {
                                     <Link href={`/products/${product.slug}`} className="text-primary-900 font-bold">
                                         مشاهده محصول
                                     </Link>
+                                    <LikedProducts product={product}  />
                                     <AddToCart product={product} />
                                 </div>
                             )

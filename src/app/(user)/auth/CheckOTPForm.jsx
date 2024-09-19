@@ -30,7 +30,7 @@ const CheckOTPForm = ({ onSubmit, otp, setOtp, goBack, resendOtp, time, isChecki
 
                     containerStyle={{
                         direction: 'ltr',
-                        display: 'flex flex-row-reverse',
+                        display: 'flex',
                         justifyContent: 'center',
                         gap: '8px'
                     }}

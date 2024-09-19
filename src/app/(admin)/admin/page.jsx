@@ -1,7 +1,24 @@
-function Admin() {
-  return <div>صفحه ادمین</div>;
-}
-export default Admin;
+"use client"
 
-// authentication : name, email,...
-// authorization : access (admin)
+import LoadingSpinner from "@/common/LoadingSpinner"
+import { getAllUsers } from "@/hooks/useAuth"
+
+const Admin = () => {
+
+  const { data, isLoading } = getAllUsers()
+  const { users } = data || {}
+
+  console.log(users);
+
+  if (isLoading) {
+    return <LoadingSpinner large={true} />
+  }
+
+  return (
+    <div className="">
+      
+    </div>
+  )
+}
+
+export default Admin

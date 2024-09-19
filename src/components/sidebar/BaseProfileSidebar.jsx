@@ -21,6 +21,9 @@ const BaseProfileSidebar = () => {
                 <li>
                     <Link href="/profile/me">پروفایل کاربر</Link>
                 </li>
+                <li>
+                    <Link href="/profile/payment">خرید های کاربر</Link>
+                </li>
                 <button onClick={logoutHandler}>
                     خروج
                 </button>

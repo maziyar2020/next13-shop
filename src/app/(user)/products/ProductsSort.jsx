@@ -25,12 +25,12 @@ const ProductsSort = () => {
         {
             id: 1,
             value: "latest",
-            label: "قدیمی ترین"
+            label: "جدیدترین"
         },
         {
             id: 2,
             value: "earliest",
-            label: "جدیدترین"
+            label: "قدیمی ترین"
         },
         {
             id: 3,

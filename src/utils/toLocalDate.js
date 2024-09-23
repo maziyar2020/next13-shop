@@ -2,7 +2,7 @@ export function toLocalDateString(date) {
   const options = {
     year: "numeric",
     month: "2-digit",
-    day: "numeric",
+    day: "2-digit",
   };
 
   return new Date(date).toLocaleDateString("fa-IR", options);

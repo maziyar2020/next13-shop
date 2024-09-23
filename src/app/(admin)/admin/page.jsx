@@ -8,7 +8,6 @@ const Admin = () => {
   const { data, isLoading } = getAllUsers()
   const { users } = data || {}
 
-  console.log(users);
 
   if (isLoading) {
     return <LoadingSpinner large={true} />

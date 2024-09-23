@@ -3,7 +3,7 @@ import { getProducts } from '@/services/productServices'
 import React from 'react'
 import CategorySidebar from './CategorySidebar'
 import queryString from 'query-string'
-import { toLocalDateStringShort } from '@/utils/toLocalDate'
+import { toLocalDateString, toLocalDateStringShort } from '@/utils/toLocalDate'
 import Link from 'next/link'
 import AddToCart from './[slug]/AddToCart'
 import LikedProducts from './LikedProducts'
@@ -34,12 +34,12 @@ const Products = async ({ searchParams }) => {
                         {
                             products.map((product, index) =>
                                 <div className="col-span-1 border rounded-xl shadow-md p-4" key={index}>
-                                    <img src={product.imageLink} />
+                                    <img src={product.imageLink} className="w-[300px] h-[300px]" />
                                     <h2 className="font-bold">{product.title}</h2>
                                     <div className="mb-4">
                                         <span>تاریخ ساخت :</span>
                                         <span className="font-bold">
-                                            {toLocalDateStringShort(product.createdAt)}
+                                            {toLocalDateString(product.createdAt)}
                                         </span>
                                     </div>
                                     <Link href={`/products/${product.slug}`} className="text-primary-900 font-bold">
